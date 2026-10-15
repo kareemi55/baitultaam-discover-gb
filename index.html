@@ -191,12 +191,18 @@
 
   <!-- HERO: use hero.mp4 as the background video -->
   <section class="hero" id="home">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto"
-      poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80"
-      aria-hidden="true">
-      <source src="./hero.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
+    <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    oncanplay="console.log('Hero video is ready')"
+    onerror="console.error('Hero video failed to load', this.error)"
+  >
+    <source src="./hero.mp4" type="video/mp4">
+  </video>
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
