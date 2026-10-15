@@ -194,25 +194,18 @@
 
   <!-- HERO: use hero.mp4 as the background video -->
   <section class="hero" id="home">
-    <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    oncanplay="console.log('Hero video is ready')"
-    onerror="console.error('Hero video failed to load', this.error)"
-  >
+  
     <!--
       The user supplied a Pexels page for the video: 
       https://www.pexels.com/video/drone-flight-over-the-hunza-valley-a-long-blue-river-below-with-boats-and-boats-with-tourists-in-summer-27903713/
       That page is HTML; the <source> needs a direct MP4 URL or a local file (./hero.mp4).
       Keep the local ./hero.mp4 as the primary source (must exist at repo root). If you want me to point to a hosted MP4 on Pexels, provide the direct MP4 URL and I'll add it as an additional <source>.
     -->
-    <source src="./hero.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+     <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+      poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80"
+      aria-hidden="true">
+      <source src="https://videos.pexels.com/video-files/27903713/12257795_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
