@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +58,8 @@
       position: relative; isolation: isolate; overflow: hidden;
       min-height: min(760px, 88svh); display: flex; align-items: center;
       color: white; background: var(--deep);
-      background-image: linear-gradient(90deg, #071c16d9, #071c1680 58%, #071c1633),
-        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80');
+      /* Use only the gradient background so the video is visible behind the overlay */
+      background-image: linear-gradient(90deg, #071c16d9, #071c1680 58%, #071c1633);
       background-size: cover; background-position: center;
     }
     .hero-video {
