@@ -58,25 +58,29 @@
       position: relative; isolation: isolate; overflow: hidden;
       min-height: min(760px, 88svh); display: flex; align-items: center;
       color: white; background: var(--deep);
-      /* Use only the gradient background so the video is visible behind the overlay */
-      background-image: linear-gradient(90deg, #071c16d9, #071c1680 58%, #071c1633);
+      /* background-image is kept as a fallback for browsers or when video fails to load */
+      background-image: linear-gradient(90deg, #071c16d9, #071c1680 58%, #071c1633),
+        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80');
       background-size: cover; background-position: center;
     }
     .hero-video {
-      position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
-      object-fit: cover; object-position: center; opacity: 0.92;
-      filter: saturate(0.9) contrast(1.07);
+      position: absolute; inset: 0; /* fill */
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+      opacity: 0.92; filter: saturate(0.9) contrast(1.07);
+      /* Place the video above the hero background so the video is visible when it loads */
+      z-index: -1;
     }
     .hero-overlay {
-      position: absolute; inset: 0; z-index: -1;
+      position: absolute; inset: 0; z-index: 0;
       background: linear-gradient(90deg, #071c16d9, #071c1680 58%, #071c1633);
     }
-    .hero-content { padding: 90px 0; max-width: 800px; }
+    .hero-content { padding: 90px 0; max-width: 800px; position: relative; z-index: 1; }
     .hero .eyebrow { color: var(--gold); }
     .hero h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.06; margin: 20px 0; letter-spacing: -1.5px; }
     .hero p { max-width: 650px; font-size: 18px; color: #f0f4ef; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .hero-note { margin-top: 25px; font-size: 13px; color: #e2e9e3; }
+    .video-credit { display: inline-block; margin-top: 12px; font-size: 12px; color: #e6f0ea; opacity: .9; }
 
     /* Intro */
     .intro { background: var(--cream); text-align: center; }
@@ -200,7 +204,14 @@
     oncanplay="console.log('Hero video is ready')"
     onerror="console.error('Hero video failed to load', this.error)"
   >
+    <!--
+      The user supplied a Pexels page for the video: 
+      https://www.pexels.com/video/drone-flight-over-the-hunza-valley-a-long-blue-river-below-with-boats-and-boats-with-tourists-in-summer-27903713/
+      That page is HTML; the <source> needs a direct MP4 URL or a local file (./hero.mp4).
+      Keep the local ./hero.mp4 as the primary source (must exist at repo root). If you want me to point to a hosted MP4 on Pexels, provide the direct MP4 URL and I'll add it as an additional <source>.
+    -->
     <source src="./hero.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
   </video>
     <div class="hero-overlay"></div>
 
@@ -220,6 +231,9 @@
         <a class="btn btn-outline" href="#destinations">Explore Destinations</a>
       </div>
       <div class="hero-note">Discover the North. Experience Local Hospitality.</div>
+      <div>
+        <a class="video-credit" href="https://www.pexels.com/video/drone-flight-over-the-hunza-valley-a-long-blue-river-below-with-boats-and-boats-with-tourists-in-summer-27903713/" target="_blank" rel="noopener noreferrer">Video credit: Pexels – Drone flight over Hunza Valley</a>
+      </div>
     </div>
   </section>
 
