@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174c3a">
+  <meta name="description" content="Explore Gilgit-Baltistan with Bait Ul Taam Discover GB. Destination guides, attractions, travel routes, local guide inquiries, transport and trip planning.">
+  <title>Bait Ul Taam Discover GB | Explore Northern Pakistan</title>
+
+  <style>
+    :root {
+      --green: #174c3a;
+      --deep: #102e24;
+      --gold: #e5b765;
+      --cream: #f8f6ef;
+      --ink: #24312a;
+      --muted: #68736c;
+      --white: #fff;
+      --line: #e5e9e3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--ink); line-height: 1.65; }
+    img { width: 100%; display: block; object-fit: cover; }
+    a { text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1140px, 91%); margin: auto; }
+    section { padding: 76px 0; }
+    .eyebrow { color: #ad7d27; text-transform: uppercase; font-size: 12px; font-weight: 800; letter-spacing: 2.5px; }
+    h2 { font-size: clamp(29px, 4vw, 43px); line-height: 1.2; margin: 10px 0 15px; }
+    h3 { line-height: 1.3; }
+    .muted { color: var(--muted); }
+    .section-heading { max-width: 760px; margin-bottom: 35px; }
+    .section-heading p { color: var(--muted); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 19px; border-radius: 6px; font-size: 14px;
+      font-weight: 700; transition: .2s; border: 1px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: #1e2925; }
+    .btn-green { background: var(--green); color: white; }
+    .btn-outline { border-color: white; color: white; background: #ffffff14; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 50; background: #fffffff7; border-bottom: 1px solid var(--line); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { color: var(--green); font-size: 21px; font-weight: 900; letter-spacing: 1px; line-height: 1.3; }
+    .brand small { display: block; font-size: 10px; letter-spacing: 4px; }
+    nav { display: flex; flex-wrap: wrap; gap: 17px; align-items: center; }
+    nav a { color: var(--ink); font-size: 13px; font-weight: 700; }
+    nav a:hover { color: #ad7d27; }
+
+    /* Video hero */
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden;
+      min-height: min(760px, 88svh); display: flex; align-items: center;
+      color: white; background: var(--deep);
+    }
+    .hero-video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(90deg, #071c16d9, #071c1680 58%, #071c1633);
+    }
+    .hero-content { padding: 90px 0; max-width: 800px; }
+    .hero .eyebrow { color: var(--gold); }
+    .hero h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.06; margin: 20px 0; letter-spacing: -1.5px; }
+    .hero p { max-width: 650px; font-size: 18px; color: #f0f4ef; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .hero-note { margin-top: 25px; font-size: 13px; color: #e2e9e3; }
+
+    /* Intro */
+    .intro { background: var(--cream); text-align: center; }
+    .intro p { max-width: 780px; margin: 16px auto 25px; color: var(--muted); }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px; }
+    .card { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: white; box-shadow: 0 5px 18px #173c2b08; }
+    .card > img { height: 220px; background: var(--cream); }
+    .card-body { padding: 23px; }
+    .card h3 { font-size: 23px; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 14px; margin: 10px 0; }
+    .card ul { padding-left: 20px; margin: 12px 0 18px; font-size: 14px; }
+    .card li { margin-bottom: 5px; }
+    .distance { padding: 10px 12px; border-radius: 7px; background: var(--cream); font-size: 13px; margin: 14px 0; }
+    .card .btn { margin-top: 8px; }
+
+    /* Travel services */
+    .services { background: var(--cream); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px; }
+    .service { padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: white; }
+    .service-icon { font-size: 27px; margin-bottom: 10px; }
+    .service h3 { font-size: 19px; margin-bottom: 8px; }
+    .service p { color: var(--muted); font-size: 14px; }
+
+    /* Practical guides */
+    .guide-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .guide { border: 1px solid var(--line); border-radius: 10px; padding: 22px; background: white; }
+    .guide h3 { font-size: 19px; margin-bottom: 8px; }
+    .guide p, .guide li { color: var(--muted); font-size: 14px; }
+    .guide ul { padding-left: 20px; margin-top: 9px; }
+
+    /* Itineraries */
+    .itineraries { background: var(--cream); }
+    .itinerary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .itinerary { padding: 24px; border-radius: 10px; background: white; border: 1px solid var(--line); }
+    .itinerary .days { color: #ad7d27; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+    .itinerary h3 { margin: 8px 0; font-size: 20px; }
+    .itinerary p { color: var(--muted); font-size: 14px; margin-bottom: 15px; }
+
+    /* Hospitality */
+    .hospitality { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+    .hospitality img { height: 390px; border-radius: 13px; }
+    .hospitality p { color: var(--muted); margin: 14px 0; }
+
+    /* Contact */
+    .contact { background: var(--green); color: white; text-align: center; }
+    .contact .eyebrow { color: var(--gold); }
+    .contact p { max-width: 680px; margin: 16px auto 25px; color: #e0eae3; }
+    .contact-details { font-size: 14px; color: #e0eae3; margin-top: 18px; }
+
+    footer { background: var(--deep); color: #dce6df; padding: 28px 0; font-size: 13px; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+    .footer-brand { font-weight: 800; letter-spacing: 1px; }
+
+    .whatsapp-float {
+      position: fixed; right: 19px; bottom: 19px; z-index: 80;
+      width: 56px; height: 56px; display: grid; place-items: center;
+      border-radius: 50%; background: #25d366; color: white;
+      font-size: 23px; font-weight: 800; box-shadow: 0 5px 18px #0003;
+    }
+
+    @media (max-width: 850px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      nav { gap: 12px 16px; }
+      .cards, .service-grid, .itinerary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hospitality { grid-template-columns: 1fr; gap: 25px; }
+      .hospitality img { height: 300px; }
+    }
+
+    @media (max-width: 560px) {
+      section { padding: 54px 0; }
+      .cards, .service-grid, .guide-list, .itinerary-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 78svh; }
+      .hero h1 { font-size: 43px; }
+      .hero p { font-size: 16px; }
+      .hero-overlay { background: #071c1699; }
+      .actions { flex-direction: column; align-items: stretch; max-width: 320px; }
+      .actions .btn { width: 100%; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-video { display: none; }
+      .hero { background: var(--deep); }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      BAIT UL TAAM
+      <small>DISCOVER GB</small>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#destinations">Destinations</a>
+      <a href="#travel-guides">Travel Guides</a>
+      <a href="#itineraries">Itineraries</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO: add your video file as hero.mp4 -->
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+      poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80"
+      aria-hidden="true">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="eyebrow">Your Northern Pakistan Journey</div>
+      <h1>Discover the Beauty of Gilgit-Baltistan</h1>
+      <p>
+        Explore spectacular mountains, peaceful valleys, historic forts
+        and local culture. Plan your journey with help from our local
+        travel network and hospitality services.
+      </p>
+      <div class="actions">
+        <a class="btn btn-gold"
+          href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20plan%20a%20trip%20to%20Gilgit-Baltistan.">
+          Plan Your Trip →
+        </a>
+        <a class="btn btn-outline" href="#destinations">Explore Destinations</a>
+      </div>
+      <div class="hero-note">Discover the North. Experience Local Hospitality.</div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="intro">
+    <div class="container">
+      <div class="eyebrow">Welcome to the North</div>
+      <h2>Experience Gilgit-Baltistan with Local Care</h2>
+      <p>
+        Whether you want to explore Hunza, discover the lakes of Skardu,
+        enjoy the quiet valleys of Ghizer or travel to Shandur Pass,
+        use our destination guides to start planning your visit.
+      </p>
+      <a class="btn btn-green" href="#travel-guides">Read Our Travel Guides</a>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section id="destinations">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Explore the Region</div>
+        <h2>Six Places to Discover</h2>
+        <p>
+          See the main attractions, approximate distances, recommended
+          stays and activities for each destination.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+            alt="Mountain scenery in northern Pakistan">
+          <div class="card-body">
+            <h3>Gilgit City</h3>
+            <p>A practical starting point for exploring the region's valleys, rivers and mountain roads.</p>
+            <strong>Places to visit</strong>
+            <ul>
+              <li>Kargah Buddha</li>
+              <li>Naltar Valley</li>
+              <li>Gilgit River viewpoints</li>
+              <li>Local bazaars and food spots</li>
+            </ul>
+            <div class="distance"><strong>Approximate distances from Gilgit</strong><br>Naltar: 40 km · Kargah: around 10 km</div>
+            <p><strong>Suggested stay:</strong> 1–2 days</p>
+            <p><strong>Good for:</strong> History, sightseeing, photography and local food.</p>
+            <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20explore%20Gilgit%20and%20Naltar.">Explore Gilgit</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+            alt="Mountain peaks and night sky">
+          <div class="card-body">
+            <h3>Hunza Valley</h3>
+            <p>Famous for mountain views, heritage forts, traditional villages and the Karakoram Highway.</p>
+            <strong>Places to visit</strong>
+            <ul>
+              <li>Baltit Fort and Karimabad</li>
+              <li>Altit Fort and village</li>
+              <li>Eagle's Nest viewpoint at Duikar</li>
+              <li>Attabad Lake</li>
+              <li>Passu Cones and Upper Hunza</li>
+              <li>Khunjerab Pass, with extra travel time</li>
+            </ul>
+            <div class="distance"><strong>Approximate distances</strong><br>Gilgit to Karimabad: 100 km · Karimabad to Attabad Lake: around 30–40 km</div>
+            <p><strong>Suggested stay:</strong> 2–4 days</p>
+            <p><strong>Good for:</strong> Heritage, village walks, photography and lake activities where available.</p>
+            <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20please%20help%20me%20plan%20a%20Hunza%20Valley%20tour.">Plan a Hunza Tour</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+            alt="Scenic natural landscape">
+          <div class="card-body">
+            <h3>Skardu & Baltistan</h3>
+            <p>Explore alpine lakes, a cold desert, historic forts and high-altitude landscapes.</p>
+            <strong>Places to visit</strong>
+            <ul>
+              <li>Kharpocho Fort</li>
+              <li>Katpana Cold Desert</li>
+              <li>Satpara Lake</li>
+              <li>Lower and Upper Kachura Lakes</li>
+              <li>Shigar Fort and valley</li>
+              <li>Deosai National Park, when accessible</li>
+            </ul>
+            <div class="distance"><strong>Approximate distances from Skardu town</strong><br>Katpana: 8 km · Satpara: 9 km · Lower Kachura: 20 km · Shigar: 30–35 km</div>
+            <p><strong>Suggested stay:</strong> 3–5 days</p>
+            <p><strong>Good for:</strong> Lakes, culture, jeep trips, hiking and photography.</p>
+            <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20please%20help%20me%20plan%20a%20Skardu%20and%20Baltistan%20tour.">Plan a Skardu Tour</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80"
+            alt="Mountain lake landscape">
+          <div class="card-body">
+            <h3>Ghizer Valley</h3>
+            <p>Discover quiet valleys, rivers, lakes and villages west of Gilgit.</p>
+            <strong>Places to visit</strong>
+            <ul>
+              <li>Gahkuch</li>
+              <li>Gupis Valley</li>
+              <li>Khalti Lake</li>
+              <li>Yasin Valley</li>
+              <li>Ishkoman Valley</li>
+              <li>Hundrap Valley and Lake</li>
+            </ul>
+            <div class="distance"><strong>Approximate distances from Gilgit</strong><br>Gahkuch: 70–75 km · Gupis: around 110 km</div>
+            <p><strong>Suggested stay:</strong> 2–4 days</p>
+            <p><strong>Good for:</strong> Scenic drives, nature walks, village visits and photography.</p>
+            <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20explore%20Ghizer%20Valley.">Explore Ghizer</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80"
+            alt="Lake surrounded by mountains">
+          <div class="card-body">
+            <h3>Phander Valley</h3>
+            <p>A peaceful destination known for blue water, green meadows and river scenery.</p>
+            <strong>Places to visit</strong>
+            <ul>
+              <li>Phander Lake</li>
+              <li>Ghizer River viewpoints</li>
+              <li>Local villages and meadows</li>
+              <li>Gupis and Khalti Lake on the route</li>
+              <li>Scenic roadside viewpoints</li>
+            </ul>
+            <div class="distance"><strong>Approximate distance</strong><br>Gilgit to Phander: around 170 km by road</div>
+            <p><strong>Suggested stay:</strong> 1–2 days</p>
+            <p><strong>Good for:</strong> Relaxation, photography, picnics and nature walks.</p>
+            <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20visit%20Phander%20Valley.">Visit Phander</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+            alt="High mountain landscape">
+          <div class="card-body">
+            <h3>Shandur Pass</h3>
+            <p>A high-altitude plateau known for its polo ground, wide meadows and mountain scenery.</p>
+            <strong>Places to visit</strong>
+            <ul>
+              <li>Shandur Polo Ground</li>
+              <li>Shandur Lake</li>
+              <li>Phander Valley</li>
+              <li>Gupis Valley and Khalti Lake</li>
+              <li>Mountain viewpoints along the route</li>
+            </ul>
+            <div class="distance"><strong>Approximate distance</strong><br>Gilgit to Shandur: around 220 km by road</div>
+            <p><strong>Suggested stay:</strong> Allow 1–2 days for the pass, plus travel time.</p>
+            <p><strong>Good for:</strong> Scenic drives, photography, camping where permitted and polo festival visits.</p>
+            <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20plan%20a%20Shandur%20Pass%20trip.">Plan a Shandur Trip</a>
+          </div>
+        </article>
+
+      </div>
+      <p class="muted" style="font-size:13px;margin-top:24px">
+        Distances are planning estimates, not live navigation results. They can vary by route and starting point. Confirm routes and road conditions before travel.
+      </p>
+    </div>
+  </section>
+
+  <!-- DETAILED TRAVEL GUIDES -->
+  <section id="travel-guides">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Travel Tips & Local Knowledge</div>
+        <h2>Practical Guides for Your Visit</h2>
+        <p>
+          Use these guides to choose a destination, prepare for the journey
+          and decide what to ask about before booking local services.
+        </p>
+      </div>
+
+      <div class="guide-list">
+
+        <article class="guide">
+          <h3>🏔️ Guide to Gilgit</h3>
+          <p>Gilgit is a useful base for acclimatizing to the region and planning onward road trips.</p>
+          <ul>
+            <li>Allow time for the bazaar and local food.</li>
+            <li>Arrange transport in advance for Naltar and check road conditions.</li>
+            <li>Ask about a local guide for historical sites and nearby valleys.</li>
+            <li>Keep a flexible schedule for mountain weather.</li>
+          </ul>
+        </article>
+
+        <article class="guide">
+          <h3>🏰 Guide to Hunza</h3>
+          <p>Hunza rewards visitors who allow enough time for the forts, villages and longer drive north.</p>
+          <ul>
+            <li>Visit Baltit Fort and Altit Fort with time to explore their surroundings.</li>
+            <li>Consider an overnight stay in Upper Hunza if visiting Passu.</li>
+            <li>Ask about boat availability and safety at Attabad Lake.</li>
+            <li>Khunjerab Pass is a longer excursion; check access and travel requirements.</li>
+          </ul>
+        </article>
+
+        <article class="guide">
+          <h3>🏞️ Guide to Skardu</h3>
+          <p>Plan Skardu around the lakes and nearby valleys rather than trying to fit every attraction into one day.</p>
+          <ul>
+            <li>Group nearby lakes and viewpoints to reduce driving time.</li>
+            <li>Ask about a suitable vehicle for Shigar and Deosai trips.</li>
+            <li>Deosai is high altitude and seasonal; verify access before departing.</li>
+            <li>Pack warm layers even when the weather in town is mild.</li>
+          </ul>
+        </article>
+
+        <article class="guide">
+          <h3>🌿 Guide to Ghizer</h3>
+          <p>Ghizer is suited to slower travel, river scenery and exploring villages along the route.</p>
+          <ul>
+            <li>Allow extra time for photo stops and mountain roads.</li>
+            <li>Discuss accommodation in advance for smaller valleys.</li>
+            <li>Ask local hosts about suitable walks and community customs.</li>
+            <li>Confirm fuel, transport and mobile connectivity for remote trips.</li>
+          </ul>
+        </article>
+
+        <article class="guide">
+          <h3>💧 Guide to Phander</h3>
+          <p>Phander is a good choice for visitors who want a quieter stay surrounded by nature.</p>
+          <ul>
+            <li>Consider staying overnight rather than rushing back to Gilgit.</li>
+            <li>Ask your accommodation about meals and local transport.</li>
+            <li>Respect private land and local fishing rules.</li>
+            <li>Bring suitable clothing for cool evenings.</li>
+          </ul>
+        </article>
+
+        <article class="guide">
+          <h3>🐎 Guide to Shandur Pass</h3>
+          <p>Shandur is a high-altitude destination where weather and road access are especially important.</p>
+          <ul>
+            <li>Plan travel in the usual summer access season and verify current conditions.</li>
+            <li>Allow generous time for the road journey and stops.</li>
+            <li>Book accommodation and transport early during polo festival dates.</li>
+            <li>Bring warm clothing, sun protection, water and essential medicines.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE ITINERARIES -->
+  <section class="itineraries" id="itineraries">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Plan Your Route</div>
+        <h2>Suggested Trip Itineraries</h2>
+        <p>
+          These are starting ideas, not fixed tour packages. Travel time,
+          road conditions and the pace of your group will affect each plan.
+        </p>
+      </div>
+
+      <div class="itinerary-grid">
+
+        <article class="itinerary">
+          <div class="days">3–4 Days</div>
+          <h3>Gilgit & Hunza Highlights</h3>
+          <p>
+            Day 1: Arrive in Gilgit and explore the city.
+            Day 2: Travel to Hunza and visit Karimabad.
+            Day 3: Explore the forts and viewpoints.
+            Day 4: Consider Attabad Lake or Upper Hunza before returning,
+            depending on transport and departure plans.
+          </p>
+          <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20please%20help%20me%20plan%20a%203%20to%204%20day%20Gilgit%20and%20Hunza%20trip.">Ask About This Route</a>
+        </article>
+
+        <article class="itinerary">
+          <div class="days">3–5 Days</div>
+          <h3>Skardu & Baltistan</h3>
+          <p>
+            Day 1: Arrive and rest in Skardu.
+            Day 2: Explore Skardu town and nearby lakes.
+            Day 3: Visit Shigar Valley.
+            Extra days: Consider Deosai or other nearby destinations
+            only when roads and weather permit.
+          </p>
+          <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20please%20help%20me%20plan%20a%20Skardu%20and%20Baltistan%20trip.">Ask About This Route</a>
+        </article>
+
+        <article class="itinerary">
+          <div class="days">3–5 Days</div>
+          <h3>Ghizer, Phander & Shandur</h3>
+          <p>
+            Day 1: Travel from Gilgit toward Gahkuch and Gupis.
+            Day 2: Explore Khalti Lake and continue toward Phander.
+            Day 3: Enjoy Phander Valley.
+            Additional days: Consider Shandur Pass if access, weather
+            and transport arrangements are suitable.
+          </p>
+          <a class="btn btn-green" href="https://wa.me/923555049449?text=Hello%2C%20please%20help%20me%20plan%20a%20Ghizer%2C%20Phander%20and%20Shandur%20trip.">Ask About This Route</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Travel Support</div>
+        <h2>Help With Your Journey</h2>
+        <p>Tell us your dates, group size, interests and budget so we can discuss suitable arrangements.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service">
+          <div class="service-icon">🗺️</div>
+          <h3>Tour Planning</h3>
+          <p>Discuss routes, destinations, sightseeing and multi-day itineraries.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">🧭</div>
+          <h3>Local Guide Inquiries</h3>
+          <p>Ask about guide availability for sightseeing, village visits and suitable local walks.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">🚙</div>
+          <h3>Transport</h3>
+          <p>Ask about local drivers and suitable vehicles for your intended route.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">🏡</div>
+          <h3>Accommodation</h3>
+          <p>Explore hotel and guesthouse options based on your destinations and budget.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">🥘</div>
+          <h3>Local Food</h3>
+          <p>Ask about regional dishes and food arrangements through local hospitality.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">🤝</div>
+          <h3>Trip Assistance</h3>
+          <p>Discuss your travel plans and the arrangements you may need before arrival.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSPITALITY -->
+  <section id="hospitality">
+    <div class="container hospitality">
+      <div>
+        <div class="eyebrow">Local Hospitality</div>
+        <h2>Feel Welcome. Discover More.</h2>
+        <p>
+          A memorable journey is about more than the views. It is also
+          about the people you meet, local traditions, regional food
+          and the memories you take home.
+        </p>
+        <p>
+          Share your preferred dates, group size, destinations and budget.
+          We can discuss suitable options for your visit.
+        </p>
+        <a class="btn btn-green"
+          href="https://wa.me/923555049449?text=Hello%2C%20I%20would%20like%20help%20planning%20my%20visit%20to%20Gilgit-Baltistan.">
+          Talk to Us on WhatsApp
+        </a>
+      </div>
+
+      <img loading="lazy"
+        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85"
+        alt="Peaceful mountain lake and natural scenery">
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="eyebrow">Let's Plan Your Adventure</div>
+      <h2>Ready to Discover Gilgit-Baltistan?</h2>
+      <p>
+        Contact us with your travel dates, number of travellers,
+        destinations and budget. Ask about local guides, transport,
+        accommodation and food arrangements.
+      </p>
+
+      <a class="btn btn-gold"
+        href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20plan%20a%20trip%20to%20Gilgit-Baltistan.">
+        Chat on WhatsApp →
+      </a>
+
+      <div class="contact-details">
+        Gilgit-Baltistan, Pakistan<br>
+        WhatsApp: +92 355 5049449
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">BAIT UL TAAM — DISCOVER GB</div>
+      <div>Discover the North. Experience Local Hospitality.</div>
+    </div>
+    <div>Gilgit-Baltistan, Pakistan<br>WhatsApp: +92 355 5049449</div>
+    <div>© <span id="year"></span> Bait Ul Taam Discover GB</div>
+  </div>
+</footer>
+
+<a class="whatsapp-float"
+  href="https://wa.me/923555049449?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20travel%20services."
+  target="_blank" rel="noopener noreferrer"
+  aria-label="Contact Bait Ul Taam on WhatsApp"
+  title="Chat on WhatsApp">✆</a>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
